@@ -4,12 +4,26 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
- var articleone={
-     title:'Article one |mpjunaid',
-     date:'september 5th 201',
-     p:'this is my first pages',
-     a:'article one'
-     
+ var articles ={
+ articleone : {
+                    title:'Article one |mpjunaid',
+                    date:'september 5th 2016',
+                    p:'this is my first pages',
+                    a:'article one'
+             },
+ articletwo : {
+                    title:'Article one |mpjunaid',
+                    date:'september 9th 2016',
+                    p:'this is my second pages',
+                    a:'article one'
+             },
+ articlethree : {
+                    title:'Article three |mpjunaid',
+                    date:'september 30th 2016',
+                    p:'this is my thrid pages',
+                    a:'article one'
+             }
+            
  };
 function create(data)  {
 var title = data.title;
@@ -42,8 +56,9 @@ return html;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/articleone',function (req,res){
-    res.send(create(articleone));
+app.get('/:articleName',function (req,res){
+    var articleName = req.parcess.articleName;
+    res.send(create(articles[articleName]));
 });
 app.get('/articletwo',function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'articletwo.html'));
