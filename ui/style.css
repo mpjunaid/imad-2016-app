@@ -20,3 +20,9 @@ body {
     height: 200px;
 }
 
+.c {
+    color:blue;
+    margin : 1 auto;
+    font-family:aelvetica;
+    padding-top:50px;
+}
