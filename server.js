@@ -7,14 +7,43 @@ app.use(morgan('combined'));
  var articleone={
      title:'Article one |mpjunaid',
      date:'september 5th 201',
-     p:'this is my first pages'
+     p:'this is my first pages',
+     a:'article one'
      
  };
+function create(data)  {
+var title = data.title;
+var date = data.date;
+var p = data.p;
+var a = data.a;
+var html=
+` <html>
+<head>
+    <title>
+        ${title}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link href="/ui/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="c">
+    <a href='/'>Home</a>
+    <h2>${a}</h2>
+    <h3>${date}</h3>
+    <p>${p}</p>
+    </div>
+</body>
+</html>
+`;
+return html;
+ }
+ 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/articleone',function (req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'articleone.html'));
+    res.send(create(articleone));
 });
 app.get('/articletwo',function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'articletwo.html'));
