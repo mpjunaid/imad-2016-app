@@ -10,11 +10,11 @@ var z={ q:'who is the president of india',
        };
 
 function create(data){
-var q=q.data;
-var a=a.data;
-var b=b.data;
-var c=c.data;
-var d=d.data;
+var q=data.q;
+var a=data.a;
+var b=data.b;
+var c=data.c;
+var d=data.d;
 var code=`
 <!doctype html>
 <html>
