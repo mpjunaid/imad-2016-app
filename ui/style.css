@@ -1,7 +1,43 @@
-body{
-    background-color:yellow;
+body {
+    font-family: sans-serif;
+    background-color: lightgrey;
+    
 }
-.head{
+#name{
+    margin-top:2px;
+    font-size:55px;
     text-align:center;
+    margin-bottom:2px;
+}
+.hbar{
+    background-color:red;
     color:blue;
 }
+.menu{
+  width:240px;
+  height:300px;
+  text-align:center;
+  background-color:green;
+  color:yellow;
+  margin:auto;
+}
+.id a{
+ padding-bottom:10px;
+ text-decoration:none;
+}
+.foot{
+    position:fixed;
+    bottom:20px;
+	width:100%;
+    
+}
+.text{
+  font-size:12px;
+  color:orange;
+  text-align:center;
+}
+.question{
+background-color:yellow;
+color:blue;
+}
+
