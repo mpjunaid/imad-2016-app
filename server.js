@@ -2,80 +2,77 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
-var app = express();
-app.use(morgan('combined'));
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-/* var articles ={
- articleone : {
-                    title:'Article one |mpjunaid',
-                    date:'september 5th 2016',
-                    p:'this is my first pages',
-                    a:'article one'
-             },
- articletwo : {
-                    title:'Article one |mpjunaid',
-                    date:'september 9th 2016',
-                    p:'this is my second pages',
-                    a:'article one'
-             },
- articlethree : {
-                    title:'Article three |mpjunaid',
-                    date:'september 30th 2016',
-                    p:'this is my thrid pages',
-                    a:'article one'
-             }
-            
- };
-function create(data)  {
-var title = data.title;
-var date = data.date;
-var p = data.p;
-var a = data.a;
-var html=
-` <html>
-<head>
-    <title>
-        ${title}
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link href="/ui/style.css" rel="stylesheet" />
-</head>
+var z={ q:'who is the president of india',
+        a:'me',
+	b:'you',
+	c:'someone',
+	d:'everyone'
+       };
 
-<body>
-    <div class="c">
-    <a href='/'>Home</a>
-    <h2>${a}</h2>
-    <h3>${date}</h3>
-    <p>${p}</p>
-    </div>
-</body>
+function create(data){
+var q=q.data;
+var a=a.data;
+var b=b.data;
+var c=c.data;
+var d=d.data;
+var code=`
+<!doctype html>
+<html>
+    <head>
+        <link href="/ui/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="/ui/main.js"></script>
+    </head>
+    <body>
+        <div class="heading">
+           <h1 id="name">QUIZ WORLD</h1>
+        </div>
+        <div class="hbar">
+				<h1>hbar</h2>
+	</div>
+	
+        <div class="question">
+                <h1>${q}</h1>
+		<h1>${a}</h1>
+		<h1>${b}</h1>
+		<h1>${c}</h1>
+		<h1>${d}</h1>
+
+        </div>
+        
+        <div class="foot">
+             <hr>
+             <div class ="text">
+                     <p>copy right protected</p>
+             </div>
+	</div>
+
+    </body>
 </html>
 `;
-return html;
- }
- 
+return code;
+}
+
+
+var app = express();
+app.use(morgan('combined'));
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-app.get('/:articleName',function (req,res){
-    var articleName = req.params.articleName;
-    res.send(create(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/z',function (req,res){
+    res.send(create(z));
 });
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-*/
+
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
